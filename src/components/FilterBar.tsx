@@ -16,7 +16,11 @@ const FilterBar = ({ selectedType, onTypeChange }: FilterBarProps) => {
           variant={selectedType === type.value ? 'default' : 'secondary'}
           className="flex items-center gap-2"
         >
-          <span>{type.icon}</span>
+          {type.value !== 'all' ? (
+            <img src={type.icon} alt={type.label} className="w-5 h-5" />
+          ) : (
+            <span>{type.icon}</span>
+          )}
           <span>{type.label}</span>
         </Button>
       ))}

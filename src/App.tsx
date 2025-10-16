@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import MapLineups from "./pages/MapLineups";
 import LineupDetail from "./pages/LineupDetail";
+import AdminUpload from "./pages/AdminUpload";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -20,6 +21,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/map/:mapId" element={<MapLineups />} />
           <Route path="/lineup/:lineupId" element={<LineupDetail />} />
+          <Route path="/admin/upload" element={<AdminUpload />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

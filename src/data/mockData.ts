@@ -11,8 +11,10 @@ export interface Lineup {
   mapId: string;
   grenadeType: 'smoke' | 'molotov' | 'flash' | 'he';
   targetSpot: string;
-  videoUrl: string;
+  lineupName: string;
   description: string;
+  lineupPhoto: string;
+  videoUrl: string;
   author: string;
   favoriteCount: number;
 }
@@ -68,8 +70,10 @@ export const mockLineups: Lineup[] = [
     mapId: 'mirage',
     grenadeType: 'smoke',
     targetSpot: 'A Site - CT Spawn',
+    lineupName: 'Palace to CT Smoke',
+    description: 'Palace balkonundan A Site CT tarafına smoke atışı. Oyunun kritik anlarında CT rotasyonunu geciktirmek için ideal.',
+    lineupPhoto: 'https://assets.csnades.gg/mirage_poster_a0e8dff716.webp',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    description: 'Perfect one-way smoke from T spawn. Aim at the corner of the building, jump throw for consistent results.',
     author: 'ProPlayer123',
     favoriteCount: 234
   },
@@ -78,8 +82,10 @@ export const mockLineups: Lineup[] = [
     mapId: 'mirage',
     grenadeType: 'molotov',
     targetSpot: 'B Site - Van',
+    lineupName: 'B Apps Van Molotov',
+    description: 'B Apps\'ten Van köşesine molotov atışı. B sitesini almak için vazgeçilmez bir lineup.',
+    lineupPhoto: 'https://assets.csnades.gg/mirage_poster_a0e8dff716.webp',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    description: 'Easy molotov to clear default plant position. Stand at van, aim at window ledge.',
     author: 'TacticalGamer',
     favoriteCount: 156
   },
@@ -88,8 +94,10 @@ export const mockLineups: Lineup[] = [
     mapId: 'mirage',
     grenadeType: 'flash',
     targetSpot: 'Mid - Window',
+    lineupName: 'Mid Window Flash',
+    description: 'Mid\'den pencereye hızlı flash atışı. Sol duvara çarptırarak mükemmel zamanlama.',
+    lineupPhoto: 'https://assets.csnades.gg/mirage_poster_a0e8dff716.webp',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    description: 'Quick mid flash to push window. Bounce off left wall for perfect timing.',
     author: 'FlashMaster',
     favoriteCount: 189
   },
@@ -98,8 +106,10 @@ export const mockLineups: Lineup[] = [
     mapId: 'dust2',
     grenadeType: 'smoke',
     targetSpot: 'Long A - Cross',
+    lineupName: 'T Spawn Long Doors Smoke',
+    description: 'T Spawn\'dan Long Doors\'a smoke. A Long kontrolü için kritik öneme sahip.',
+    lineupPhoto: 'https://assets.csnades.gg/dust2_poster_c8e46ba26d.webp',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    description: 'Standard long cross smoke from T spawn. Essential for A site executes.',
     author: 'CS2Pro',
     favoriteCount: 312
   },
@@ -108,17 +118,26 @@ export const mockLineups: Lineup[] = [
     mapId: 'dust2',
     grenadeType: 'he',
     targetSpot: 'B Site - Back Plat',
+    lineupName: 'Tunnel Back Plat HE',
+    description: 'Tunnel girişinden yaygın kampçı noktasına HE bombası. Sık kullanılan savunma pozisyonunu temizlemek için.',
+    lineupPhoto: 'https://assets.csnades.gg/dust2_poster_c8e46ba26d.webp',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    description: 'HE grenade lineup for common camping spot. Stand at tunnel entrance.',
     author: 'NadeKing',
     favoriteCount: 98
   }
 ];
 
+export const grenadeIcons = {
+  smoke: 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxETBhMQERISFhUWFhgXFRgSFRAWFRUWGRYXFxYXGBYYHCogGRolHRgWIjEtJSktLy4uFx8zODMtNygtLisBCgoKDg0OGxAQGyslICUvLi4tKzc3Ky0tLS0tLS0tMTIrLSstKy0tLS0tLS0rLS0rLy0rLS0tKyszOC04Ky03Lf/AABEIAMIBAwMBIgACEQEDEQH/xAAcAAEAAwADAQEAAAAAAAAAAAAABQYHAwQIAgH/xAA8EAACAQMCBAMFBQYFBQAAAAAAAQIDBBEFITE',
+  molotov: 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMHBhUIBwgTFRUXGRoWFxgYGSAdHRgiGh0hIR4lGhgfICgiISYlHh8bLT0hJSo3Li8uIR8/OjMvNy0tLisBCgoKDQ0OGRAQGyslHh8tNy0vNS0tNistLS0tLS03LS0tKy01LSstLSstNy0tNS0tKy0tLS03LS0tLS0tLS0tLf/AABEIAMIBAwMBIgACEQEDEQH/xAAcAAEAAwADAQEAAAAAAAAAAAAABQYHAwQIAgH/xAA5EAACAQMBBAcGBQMFAQAAAAAAAQIDBBEFBhIhMQciQlFhcYETMpGhsdEUQsHh8BVSImJygqKyFv/eABcBAQEBAQAAAAAAAAAAAAAAAAACAQP/xAAeEQEBAAICAwEBAAAAAAAAAAAAAQIRITEDEkETBP/2gAMAwEAAhEDEQA/ALxAAA',
+  flash: 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBhUIBxQWFhMXGCAaFxgYGBsfHRshHhkXIyAZIB8bHiohHiAqHhoXJTEhJy0rLi4uGR82ODMsNyguLy0BCgoKDg0OGhAQGysmHyUtLS41LSstLSsrMDUtLS0rLS0rLS0rLS0tLS0rLS0tLS0rLS0tLS0tLS0tLSstLS0tK//AABEIAJ8BPgMBIgACEQEDEQH/xAAcAAEAAgMBAQEAAAAAAAAAAAAABgcDBAUIAgH/xAA8EAACAQMCBAMFBQYFBQAAAAAAAQIDBBEFITE',
+  he: 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBhUIBwgTFRUXGRoWFxgYGSAdHRgiGh0hIR4lGhgfICgiISYlHh8bLT0hJSo3Li8uIR8/OjMvNy0tLisBCgoKDQ0OGRAQGyslHh8tNy0vNS0tNistLS0tLS03LS0tKy01LSstLSstNy0tNS0tKy0tLS03LS0tLS0tLS0tLf/AABEIAMIBAwMBIgACEQEDEQH/xAAcAAEAAgMBAQEAAAAAAAAAAAAABgcBBAUIAgH/xAA8EAACAQMCBAMFBQYFBQAAAAAAAQIDBBEFITE'
+};
+
 export const grenadeTypes = [
   { value: 'all', label: 'Tüm Bombalar', icon: '💣' },
-  { value: 'smoke', label: 'Smoke', icon: '💨' },
-  { value: 'molotov', label: 'Molotov', icon: '🔥' },
-  { value: 'flash', label: 'Flash', icon: '⚡' },
-  { value: 'he', label: 'HE', icon: '💥' }
+  { value: 'smoke', label: 'Smoke', icon: grenadeIcons.smoke },
+  { value: 'molotov', label: 'Molotov', icon: grenadeIcons.molotov },
+  { value: 'flash', label: 'Flash', icon: grenadeIcons.flash },
+  { value: 'he', label: 'HE', icon: grenadeIcons.he }
 ];
